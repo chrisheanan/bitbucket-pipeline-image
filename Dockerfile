@@ -18,6 +18,7 @@ RUN apt install -y \
     curl \
     build-essential \
     git \
+    rsync \
     tzdata \
     software-properties-common \
     libpng-dev \
@@ -47,7 +48,6 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/${NVM_VERSION}/ins
 RUN source ~/.nvm/nvm.sh; \
     nvm install node; \
     nvm use node; \
-    apt install -y; \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -; \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list; \
     apt -qq update; \
