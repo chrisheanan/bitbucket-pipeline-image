@@ -8,30 +8,21 @@ A bitbucket pipeline image for git repositories.
 
 ## How do I get set up?
 
-*   docker pull cheanan/dockerpipeline
-*   docker run -it cheanan/dockerpipeline bash
++ docker pull cheanan/dockerpipeline:latest
++ docker run -it cheanan/dockerpipeline bash
 
 ## How do I build it from the `Dockerfile`?
 
-*   `cd <Dockerfile-directory>`
-*   docker build -t cheanan/dockerpipeline:latest .
++ `cd <Dockerfile-directory>`
++ docker build -t cheanan/dockerpipeline:latest .
 
 Note the . is very important
-
-## List Docker CLI commands
-
-docker
-docker container --help
 
 ## Display Docker version and info
 
 docker --version
 docker version
 docker info
-
-## Excecute Docker image
-
-docker run hello-world
 
 ## List Docker images
 
@@ -45,7 +36,8 @@ docker container ls -aq
 
 ## Useful docker commands?
 
-*   `docker ps -a` see all containers
-*   `docker rm $(docker ps -aq)` remove all docker containers
-*   `docker images` list images
-*   `docker rmi $(docker images -q)` remove all images
++ See all containers `docker ps -a`
++ Remove all docker containers `docker rm $(docker ps -aq)`
++ List all docker images on your system `docker images`
++ Remove all images from your machine `docker rmi $(docker images -q)`
++ Running low on space? Prune your docker space on your machine `docker system prune --all`

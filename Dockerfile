@@ -4,9 +4,7 @@ MAINTAINER Christopehr David Heanan
 
 ENV DEBIAN_FRONTEND=noninteractiv
 
-RUN apt -qq update
-
-RUN apt install -y locales && locale-gen en_US.UTF-8 && apt clean
+RUN apt -qq update && apt install -y locales && locale-gen en_US.UTF-8 && apt clean
 
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
@@ -28,15 +26,15 @@ RUN apt install -y \
 RUN add-apt-repository ppa:ondrej/php
 RUN apt -qq update
 RUN apt install -y \
-    php7.3 \
-    php7.3-sqlite3 \
-    php7.3-cli \
-    php7.3-mbstring \
-    php7.3-xml \
-    php7.3-common \
-    php7.3-curl \
-    php7.3-intl \
-    php7.3-zip
+    php7.4 \
+    php7.4-sqlite3 \
+    php7.4-cli \
+    php7.4-mbstring \
+    php7.4-xml \
+    php7.4-common \
+    php7.4-curl \
+    php7.4-intl \
+    php7.4-zip
 
 #Install nvm & yarn
 ENV NVM_VERSION v0.35.3
@@ -59,6 +57,7 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 
 #Cleanup
 RUN apt purge -y software-properties-common \
+    && apt autoclean \
     && apt clean \
     && apt -y autoremove \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
