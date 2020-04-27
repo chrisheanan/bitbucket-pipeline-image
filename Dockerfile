@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
-MAINTAINER Christopehr David Heanan
+LABEL maintainer="Christopher David Heanan"
 
 ENV DEBIAN_FRONTEND=noninteractiv
 
